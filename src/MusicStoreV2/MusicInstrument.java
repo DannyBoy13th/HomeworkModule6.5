@@ -9,13 +9,15 @@ public class MusicInstrument {
     private int Price;
     private int Quantity;
 
-    public void Play(){
+    public void Play() {
         System.out.println("Playing something");
     }
-    public void Stop(){
+
+    public void Stop() {
         System.out.println("Music Stopped");
     }
-    public void Price(){
+
+    public void Price() {
         System.out.println("Display price");
     }
 
@@ -50,4 +52,5 @@ public class MusicInstrument {
     public void setQuantity(int quantity) {
         Quantity = quantity;
     }
+
 }

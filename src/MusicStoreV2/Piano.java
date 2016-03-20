@@ -5,21 +5,32 @@ package MusicStoreV2;
  */
 public class Piano extends MusicInstrument {
 
-    public void Name(){
+    public void Name() {
         System.out.println("Mozart 1778");
     }
 
-    public void Play(){
+    public void Play() {
         System.out.println("Playing some classic, sad tune");
     }
-    public void Stop(){
+
+    public void Stop() {
         System.out.println("Music stopped");
     }
-    public void Price(){
+
+    public void Price() {
         System.out.println(15999);
     }
 
-    public void Quantity(){
-        System.out.println(2);
+    private int Quantity = 2;
+
+    @Override
+    public int getQuantity() {
+        return Quantity;
     }
+
+    @Override
+    public void setQuantity(int quantity) {
+        Quantity = quantity;
+    }
+
 }
