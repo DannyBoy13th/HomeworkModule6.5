@@ -5,9 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by DannyBoy13th on 17.03.2016.
- */
 public class Main {
     public static void main(String[] args) {
         MusicStore Store = new MusicStore();
@@ -31,14 +28,17 @@ public class Main {
         Store.setTrumpets(Trumpets);
 
         System.out.println(Store);
+        System.out.println();
 
         Map<String, Integer> order = new HashMap<>();
-        order.put("Guitar", 9);
-        order.put("Piano", 4);
-        order.put("Trumpet", 13);
+        order.put("Guitar", 11);
+        order.put("Piano", 5);
+        order.put("Trumpet", 12);
 
 
         System.out.println("Your order is: ");
+        System.out.println();
+        System.out.println(order);
         System.out.println();
 
         List<MusicInstrument> guitarsToRemove = prepareOrder(Store, order);
@@ -67,7 +67,7 @@ public class Main {
 
         List<Piano> pianos = Store.getPianos();
         int numberOfPianosToRemove = order.get("Piano");
-        if (Store.getPianos().size() < numberOfPianosToRemove) throw  new IllegalStateException();
+        if (Store.getPianos().size() < numberOfPianosToRemove) throw new IllegalStateException();
         List<Piano> pianosToRemove = Store.getPianos().subList(0, numberOfPianosToRemove);
         List<Piano> pianosToStay = Store.getPianos().subList(numberOfPianosToRemove, pianos.size());
         Store.setPianos(pianosToStay);
@@ -81,7 +81,9 @@ public class Main {
         Store.setTrumpets(trumpetsToStay);
         result.addAll(trumpetsToRemove);
 
+        System.out.println();
         return result;
+
     }
 
 }

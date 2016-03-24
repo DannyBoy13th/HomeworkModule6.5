@@ -2,9 +2,6 @@ package MusicStoreV3;
 
 import java.util.List;
 
-/**
- * Created by Daniel Solo on 17.03.2016.
- */
 public class MusicStore {
    List<Guitar> Guitars;
     List<Piano> Pianos;
