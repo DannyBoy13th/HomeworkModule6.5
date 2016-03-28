@@ -4,9 +4,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * Created by Daniel Solo on 17.03.2016.
- */
+
 public class MusicStore {
     public String Inventory = "You`re browsing inventory of JAMZ HARD ROCK STORE:";
     public String Rocker = "Wide variety of acustic and electro guitars for any kind of freak";

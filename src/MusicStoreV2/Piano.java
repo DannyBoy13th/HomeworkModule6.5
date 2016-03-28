@@ -1,8 +1,6 @@
 package MusicStoreV2;
 
-/**
- * Created by DannyBoy13th on 17.03.2016.
- */
+
 public class Piano extends MusicInstrument {
 
     public void Name() {
@@ -21,7 +19,11 @@ public class Piano extends MusicInstrument {
         System.out.println(15999);
     }
 
-    private int Quantity = 2;
+    private int Quantity = 8;
+
+    public void Type() {
+        System.out.println("Piano");
+    }
 
     @Override
     public int getQuantity() {

@@ -1,10 +1,9 @@
 package MusicStoreV2;
 
-import java.util.Scanner;
+import java.security.Key;
+import java.util.HashMap;
+import java.util.Map;
 
-/**
- * Created by DannyBoy13th on 17.03.2016.
- */
 public class Main {
     public static void main(String[] args) {
         MusicStore Jamz = new MusicStore();
@@ -12,19 +11,14 @@ public class Main {
         Guitar Rocker = new Guitar();
         Piano Mozart = new Piano();
         Trumpet Horn = new Trumpet();
-        Scanner Order = new Scanner(System.in);
-        int PianosLeft;
-        int GuitarsLeft;
-        int HornsLeft;
-        int pianoOrder;
-        int guitarOrder;
-        int trumpetOrder;
-        Scanner orderScanner = new Scanner(System.in);
+
+
 
         Jamz.Inventory();
         System.out.println();
 
         Rocker.Name();
+        Rocker.Type();
         System.out.print("$");
         Rocker.Price();
         System.out.print("Quantity: " + Rocker.getQuantity());
@@ -33,6 +27,7 @@ public class Main {
         System.out.println();
 
         Mozart.Name();
+        Mozart.Type();
         System.out.print("$");
         Mozart.Price();
         System.out.print("Quantity: " + Mozart.getQuantity());
@@ -41,6 +36,7 @@ public class Main {
         System.out.println();
 
         Horn.Name();
+        Horn.Type();
         System.out.print("$");
         Horn.Price();
         System.out.print("Quantity: " + Horn.getQuantity());
@@ -49,38 +45,44 @@ public class Main {
         System.out.println();
 
 
-        System.out.println("Please, type in how many guitars would you like to order");
+        Map<String, Integer> order = new HashMap<>();
+        order.put("Guitar", 111);
+        order.put("Piano", 5);
+        order.put("Trumpet", 12);
+
+
+
+        System.out.println("Your order is: ");
+        System.out.println();
+        System.out.println(order);
         System.out.println();
 
-        if (orderScanner.hasNextInt()) {
-            guitarOrder = orderScanner.nextInt();
+        int numberOfGuitarsToRempve = order.get("Guitar");
+        if (order.get("") != order.get("Guitar"))
+            throw new WrongInstrumentNameException
+        if (numberOfGuitarsToRempve > Rocker.getQuantity())
+                throw new IllegalStateException();
+        int GuitarsLeft = Rocker.getQuantity()-order.get("Guitar");
 
-            System.out.println("Please, type in how many pianos would you like to order");
-            System.out.println();
-            pianoOrder = orderScanner.nextInt();
 
-            System.out.println("Please, type in how many trumpets would you like to order");
-            System.out.println();
-            trumpetOrder = orderScanner.nextInt();
+        int numberOfPianosToRemove = order.get("Piano");
+        if (numberOfPianosToRemove > Mozart.getQuantity())
+            throw new IllegalStateException();
+        int PianosLeft = Mozart.getQuantity() - order.get("Piano");
 
-            System.out.println("Your order is: ");
-            System.out.println("Guitars: " + guitarOrder);
-            System.out.println("Pianos: " + pianoOrder);
-            System.out.println("Trumpets: " + trumpetOrder);
+        int numberOfTrumpetsToRemove = order.get("Trumpet");
+        if (numberOfTrumpetsToRemove > Horn.getQuantity())
+            throw new IllegalStateException();
+        int HornsLeft = Horn.getQuantity() - order.get("Trumpet");
 
-            GuitarsLeft = Rocker.getQuantity() - guitarOrder;
-            PianosLeft = Mozart.getQuantity()-pianoOrder;
-            HornsLeft =  Horn.getQuantity() - trumpetOrder;
 
-            System.out.println();
-            System.out.println("Inventory of the store after the purchase: ");
-            System.out.println();
-            System.out.println("Guitars: " + GuitarsLeft);
-            System.out.println("Pianos: " + PianosLeft);
-            System.out.println("Trumpets: " + HornsLeft);
 
+
+        System.out.println("Inventory after the purchase:");
+        System.out.println("Guitars: " + GuitarsLeft);
+        System.out.println("Pianos: " + PianosLeft);
+        System.out.println("Trumpets: " + HornsLeft);
 
         }
 
     }
-}

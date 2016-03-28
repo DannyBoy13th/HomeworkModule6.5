@@ -1,8 +1,6 @@
 package MusicStoreV2;
 
-/**
- * Created by DannyBoy13th on 17.03.2016.
- */
+
 public class Trumpet extends MusicInstrument {
     public void Name() {
         System.out.println("Golden Horn");
@@ -20,7 +18,11 @@ public class Trumpet extends MusicInstrument {
         System.out.println(999);
     }
 
-    public int Quantity = 7;
+    public int Quantity = 15;
+
+    public void Type() {
+        System.out.println("Trumpet");
+    }
 
     @Override
     public int getQuantity() {

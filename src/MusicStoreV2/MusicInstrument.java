@@ -1,8 +1,9 @@
 package MusicStoreV2;
 
-/**
- * Created by Daniel Solo on 17.03.2016.
- */
+
+import java.util.List;
+import java.util.Map;
+
 public class MusicInstrument {
     private String Name;
     private String Type;
@@ -52,5 +53,4 @@ public class MusicInstrument {
     public void setQuantity(int quantity) {
         Quantity = quantity;
     }
-
 }

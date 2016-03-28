@@ -1,8 +1,6 @@
 package MusicStoreV2;
 
-/**
- * Created by DannyBoy13th on 17.03.2016.
- */
+
 public class Guitar extends MusicInstrument {
     public void Name() {
         System.out.println("Rocker 2016");
@@ -20,7 +18,12 @@ public class Guitar extends MusicInstrument {
         System.out.println(1500);
     }
 
-    public int Quantity = 16;
+    public void Type() {
+        System.out.println("Guitar");
+    }
+
+
+    public int Quantity = 23;
 
     @Override
     public int getQuantity() {
@@ -31,4 +34,6 @@ public class Guitar extends MusicInstrument {
     public void setQuantity(int quantity) {
         Quantity = quantity;
     }
+
+
 }
