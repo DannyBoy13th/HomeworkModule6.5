@@ -66,29 +66,19 @@ public class Main {
         try {
 
             int numberOfGuitarsToRemove = order.get("Guitar");
-            if (numberOfGuitarsToRemove > Rocker.getQuantity()) {
-                throw new WrongInstrumentQuantity();
-            }
-            if (order.containsKey("Guitar")){
-                GuitarsLeft = Rocker.getQuantity() - order.get("Guitar");
-            }else
-                throw new WrongInstrumentName();
-
-
             int numberOfPianosToRemove = order.get("Piano");
-            if (numberOfPianosToRemove > Mozart.getQuantity()) {
-                throw new WrongInstrumentQuantity();
-            }
-            if (order.containsKey("Piano")){
-                PianosLeft = Mozart.getQuantity() - order.get("Piano");
-            }else
-                throw new WrongInstrumentName();
-
             int numberOfTrumpetsToRemove = order.get("Trumpet");
-            if (numberOfTrumpetsToRemove > Horn.getQuantity()) {
+
+            if (numberOfGuitarsToRemove > Rocker.getQuantity()
+                    ||numberOfPianosToRemove > Mozart.getQuantity()
+                    ||numberOfTrumpetsToRemove > Horn.getQuantity()){
                 throw new WrongInstrumentQuantity();
             }
-            if (order.containsKey("Trumpet")){
+            if (order.containsKey("Guitar")
+                    ||(order.containsKey("Piano")
+                    ||order.containsKey("Trumpet"))) {
+                GuitarsLeft = Rocker.getQuantity() - order.get("Guitar");
+                PianosLeft = Mozart.getQuantity() - order.get("Piano");
                 HornsLeft = Horn.getQuantity() - order.get("Trumpet");
             }else
                 throw new WrongInstrumentName();
@@ -99,14 +89,12 @@ public class Main {
             System.out.println("ERROR: Not enough Instruments");
         }
 
-
-
-            System.out.println();
-            System.out.println("Inventory after the purchase:");
-            System.out.println();
-            System.out.println("Guitars: " + GuitarsLeft);
-            System.out.println("Pianos: " + PianosLeft);
-            System.out.println("Trumpets: " + HornsLeft);
+        System.out.println();
+        System.out.println("Inventory after the purchase:");
+        System.out.println();
+        System.out.println("Guitars: " + GuitarsLeft);
+        System.out.println("Pianos: " + PianosLeft);
+        System.out.println("Trumpets: " + HornsLeft);
 
         }
 
