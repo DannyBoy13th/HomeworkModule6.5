@@ -67,16 +67,16 @@ public class Main {
 
             int numberOfGuitarsToRemove = order.get("Guitar");
             int numberOfPianosToRemove = order.get("Piano");
-            int numberOfTrumpetsToRemove = order.get("Trumpet");
+            int numberOfTrumpetsToRemove = order.get("Truuumpet");
 
             if (numberOfGuitarsToRemove > Rocker.getQuantity()
                     ||numberOfPianosToRemove > Mozart.getQuantity()
                     ||numberOfTrumpetsToRemove > Horn.getQuantity()){
                 throw new WrongInstrumentQuantity();
             }
-            if (order.containsKey("Guitar")
-                    ||(order.containsKey("Piano")
-                    ||order.containsKey("Trumpet"))) {
+            if ((order.containsKey("Guitar"))
+                    ||(order.containsKey("Piano"))
+                    ||(order.containsKey("Trumpet"))) {
                 GuitarsLeft = Rocker.getQuantity() - numberOfGuitarsToRemove;
                 PianosLeft = Mozart.getQuantity() - numberOfPianosToRemove;
                 HornsLeft = Horn.getQuantity() - numberOfTrumpetsToRemove;
