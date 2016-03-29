@@ -5,9 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
-    public static void main(String[] args) {
+
+
+    public static void main(String[] args) throws WrongInstrumentQuantity, WrongInstrumentName {
         MusicStore Jamz = new MusicStore();
-        MusicInstrument OrdinaryInstrument = new MusicInstrument();
         Guitar Rocker = new Guitar();
         Piano Mozart = new Piano();
         Trumpet Horn = new Trumpet();
@@ -45,11 +46,15 @@ public class Main {
         System.out.println();
 
 
-        Map<String, Integer> order = new HashMap<>();
-        order.put("Guitar", 111);
-        order.put("Piano", 5);
-        order.put("Trumpet", 12);
+        int GuitarsLeft = Rocker.getQuantity();
+        int PianosLeft = Mozart.getQuantity();
+        int HornsLeft = Horn.getQuantity();
 
+
+        Map<String, Integer> order = new HashMap<>();
+        order.put("Guitar",15);
+        order.put("Piano", 7);
+        order.put("Trumpet", 10);
 
 
         System.out.println("Your order is: ");
@@ -57,31 +62,51 @@ public class Main {
         System.out.println(order);
         System.out.println();
 
-        int numberOfGuitarsToRempve = order.get("Guitar");
-        if (order.get("") != order.get("Guitar"))
-            throw new WrongInstrumentNameException
-        if (numberOfGuitarsToRempve > Rocker.getQuantity())
-                throw new IllegalStateException();
-        int GuitarsLeft = Rocker.getQuantity()-order.get("Guitar");
+
+        try {
+
+            int numberOfGuitarsToRemove = order.get("Guitar");
+            if (numberOfGuitarsToRemove > Rocker.getQuantity()) {
+                throw new WrongInstrumentQuantity();
+            }
+            if (order.containsKey("Guitar")){
+                GuitarsLeft = Rocker.getQuantity() - order.get("Guitar");
+            }else
+                throw new WrongInstrumentName();
 
 
-        int numberOfPianosToRemove = order.get("Piano");
-        if (numberOfPianosToRemove > Mozart.getQuantity())
-            throw new IllegalStateException();
-        int PianosLeft = Mozart.getQuantity() - order.get("Piano");
+            int numberOfPianosToRemove = order.get("Piano");
+            if (numberOfPianosToRemove > Mozart.getQuantity()) {
+                throw new WrongInstrumentQuantity();
+            }
+            if (order.containsKey("Piano")){
+                PianosLeft = Mozart.getQuantity() - order.get("Piano");
+            }else
+                throw new WrongInstrumentName();
 
-        int numberOfTrumpetsToRemove = order.get("Trumpet");
-        if (numberOfTrumpetsToRemove > Horn.getQuantity())
-            throw new IllegalStateException();
-        int HornsLeft = Horn.getQuantity() - order.get("Trumpet");
+            int numberOfTrumpetsToRemove = order.get("Trumpet");
+            if (numberOfTrumpetsToRemove > Horn.getQuantity()) {
+                throw new WrongInstrumentQuantity();
+            }
+            if (order.containsKey("Trumpet")){
+                HornsLeft = Horn.getQuantity() - order.get("Trumpet");
+            }else
+                throw new WrongInstrumentName();
+
+        } catch (WrongInstrumentName e) {
+            System.out.println("ERROR: Wrong Instrument name!");
+        } catch (WrongInstrumentQuantity e) {
+            System.out.println("ERROR: Not enough Instruments");
+        }
 
 
 
-
-        System.out.println("Inventory after the purchase:");
-        System.out.println("Guitars: " + GuitarsLeft);
-        System.out.println("Pianos: " + PianosLeft);
-        System.out.println("Trumpets: " + HornsLeft);
+            System.out.println();
+            System.out.println("Inventory after the purchase:");
+            System.out.println();
+            System.out.println("Guitars: " + GuitarsLeft);
+            System.out.println("Pianos: " + PianosLeft);
+            System.out.println("Trumpets: " + HornsLeft);
 
         }
 

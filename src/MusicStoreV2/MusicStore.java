@@ -6,6 +6,7 @@ import java.util.List;
 
 
 public class MusicStore {
+
     public String Inventory = "You`re browsing inventory of JAMZ HARD ROCK STORE:";
     public String Rocker = "Wide variety of acustic and electro guitars for any kind of freak";
     public String Mozart = "If you have shitloads of money and prefer to listen to boring music we have a wide range of pianos";
@@ -28,7 +29,9 @@ public class MusicStore {
         while (itr.hasNext())
 
             System.out.println(itr.next());
+    }
 
     }
-}
+
+
 
