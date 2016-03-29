@@ -53,7 +53,7 @@ public class Main {
 
         Map<String, Integer> order = new HashMap<>();
         order.put("Guitar",15);
-        order.put("Piano", 5557);
+        order.put("Piano", 5);
         order.put("Trumpet", 10);
 
 
@@ -67,7 +67,7 @@ public class Main {
 
             int numberOfGuitarsToRemove = order.get("Guitar");
             int numberOfPianosToRemove = order.get("Piano");
-            int numberOfTrumpetsToRemove = order.get("Truuumpet");
+            int numberOfTrumpetsToRemove = order.get("Trumpet");
 
             if (numberOfGuitarsToRemove > Rocker.getQuantity()
                     ||numberOfPianosToRemove > Mozart.getQuantity()
