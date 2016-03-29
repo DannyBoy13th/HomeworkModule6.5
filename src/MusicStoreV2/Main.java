@@ -53,7 +53,7 @@ public class Main {
 
         Map<String, Integer> order = new HashMap<>();
         order.put("Guitar",15);
-        order.put("Piano", 7);
+        order.put("Piano", 5557);
         order.put("Trumpet", 10);
 
 
@@ -77,9 +77,9 @@ public class Main {
             if (order.containsKey("Guitar")
                     ||(order.containsKey("Piano")
                     ||order.containsKey("Trumpet"))) {
-                GuitarsLeft = Rocker.getQuantity() - order.get("Guitar");
-                PianosLeft = Mozart.getQuantity() - order.get("Piano");
-                HornsLeft = Horn.getQuantity() - order.get("Trumpet");
+                GuitarsLeft = Rocker.getQuantity() - numberOfGuitarsToRemove;
+                PianosLeft = Mozart.getQuantity() - numberOfPianosToRemove;
+                HornsLeft = Horn.getQuantity() - numberOfTrumpetsToRemove;
             }else
                 throw new WrongInstrumentName();
 
